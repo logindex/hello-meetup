@@ -1,19 +1,11 @@
-FROM centos:7
+FROM        python:3.6-alpine
 
-MAINTAINER Lukasz Skrajny "lukasz.skrajny@logindex.com"
-LABEL      description="AWS Meetup Wroclaw #1"
+MAINTAINER  Lukasz Skrajny "lukasz.skrajny@logindex.com"
+LABEL       description="AWS Meetup Wroclaw #1"
 
-RUN yum -y update
-RUN yum install -y epel-release
+RUN         pip install Flask
 
-RUN yum install -y python-pip python-devel; \
-    yum clean all;
-
-RUN pip install --upgrade pip
-
-RUN pip install Flask
-
-COPY        server.py /app/server.py
+ADD         ./code /app
 WORKDIR     /app
 
 EXPOSE      5000
