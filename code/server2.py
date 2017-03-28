@@ -8,7 +8,7 @@ redis = Redis(host='redis', port=6379)
 @app.route('/')
 def hello_world():
     count = redis.incr('hits')
-    return 'Hello AWS Wroclaw Meetup #1.<br/><br/>I have been seen {} times.'.format(count)
+    return '<h1>Hello AWS Wroclaw Meetup #1</h1><h3>I have been seen {} times</h3>'.format(count)
 
 
 if __name__ == '__main__':

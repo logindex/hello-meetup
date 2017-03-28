@@ -3,9 +3,16 @@ services:
 
   web:
     build: .
+    mem_limit: 128M
+    cpu_shares: 128
     ports:
      - "5000:5000"
     image: "798432293470.dkr.ecr.eu-west-1.amazonaws.com/hello-meetup:latest"
-    
+    links:
+      - redis
+
   redis:
     image: "redis:alpine"
+    mem_limit: 128M
+    cpu_shares: 128
+    
